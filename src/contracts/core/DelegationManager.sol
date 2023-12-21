@@ -433,6 +433,13 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
         }
     }
 
+    function registerOperatorToAVSWithoutSig(address operator) external {
+        // Set the operator as registered
+        avsOperatorStatus[msg.sender][operator] = OperatorAVSRegistrationStatus.REGISTERED;
+
+        emit OperatorAVSRegistrationStatusUpdated(operator, msg.sender, OperatorAVSRegistrationStatus.REGISTERED);
+    }
+
     /**
      * @notice Called by an avs to register an operator with the avs.
      * @param operator The address of the operator to register.

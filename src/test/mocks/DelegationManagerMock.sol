@@ -128,6 +128,8 @@ contract DelegationManagerMock is IDelegationManager, Test {
 
     function registerOperatorToAVS(address operator, ISignatureUtils.SignatureWithSaltAndExpiry memory operatorSignature) external {}
 
+    function registerOperatorToAVSWithoutSig(address operator) external {}
+
     function deregisterOperatorFromAVS(address operator) external {}
 
     function operatorSaltIsSpent(address avs, bytes32 salt) external view returns (bool) {}
